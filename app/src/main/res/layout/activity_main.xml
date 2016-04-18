@@ -33,10 +33,10 @@
         android:layout_height="wrap_content"
         android:text="Find Restaurants"
         android:id="@+id/findRestaurantsButton"
+        android:background="#FF700D"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="31dp"
-        android:background="#FF700D" />
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -45,9 +45,8 @@
         android:background="#fff"
         android:padding="5dp"
         android:hint="Enter Zip Code"
-        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="76dp" />
+        android:layout_marginTop="186dp" />
 
 
 </RelativeLayout>
