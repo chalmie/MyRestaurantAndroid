@@ -38,5 +38,16 @@
         android:layout_marginBottom="31dp"
         android:background="#FF700D" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationEditText"
+        android:background="#fff"
+        android:padding="5dp"
+        android:hint="Enter Zip Code"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="76dp" />
+
 
 </RelativeLayout>
