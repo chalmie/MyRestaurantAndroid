@@ -7,34 +7,56 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.epicodus.myrestaurant.R;
+import com.epicodus.myrestaurant.models.Restaurant;
+import com.squareup.picasso.Picasso;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link RestaurantDetailFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link RestaurantDetailFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import org.parceler.Parcels;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+
 public class RestaurantDetailFragment extends Fragment {
+    @Bind(R.id.restaurantImageView) ImageView mImageLabel;
+    @Bind(R.id.restaurantNameTextView) TextView mNameLabel;
+    @Bind(R.id.cuisineTextView) TextView mCategoriesLabel;
+    @Bind(R.id.ratingTextView) TextView mRatingLabel;
+    @Bind(R.id.websiteTextView) TextView mWebsiteLabel;
+    @Bind(R.id.phoneTextView) TextView mPhoneLabel;
+    @Bind(R.id.addressTextView) TextView mAddressLabel;
+    @Bind(R.id.saveRestaurantButton) TextView mSaveRestaurantButton;
 
+    private Restaurant mRestaurant;
+
+    public static RestaurantDetailFragment newInstance(Restaurant restaurant) {
+        RestaurantDetailFragment restaurantDetailFragment = new RestaurantDetailFragment();
+        Bundle args = new Bundle();
+        args.putParcelable("restaurant", Parcels.wrap(restaurant));
+        restaurantDetailFragment.setArguments(args);
+        return restaurantDetailFragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        mRestaurant = Parcels.unwrap(getArguments().getParcelable("restaurant"));
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_restaurant_detail, container, false);
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_restaurant_detail, container, false);
+        ButterKnife.bind(this, view);
 
+        Picasso.with(view.getContext()).load(mRestaurant.getImageUrl()).into(mImageLabel);
+        mNameLabel.setText(mRestaurant.getName());
+        mCategoriesLabel.setText(android.text.TextUtils.join(", ", mRestaurant.getCategories()));
+        mRatingLabel.setText(Double.toString(mRestaurant.getRating()) + "/5");
+        mPhoneLabel.setText(mRestaurant.getPhone());
+        mAddressLabel.setText(android.text.TextUtils.join(", ", mRestaurant.getAddress()));
+        return view;
+    }
 }
