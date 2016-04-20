@@ -6,7 +6,7 @@ package com.epicodus.myrestaurant;
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 
-import com.epicodus.myrestaurant.ui.RestaurantActivity;
+import com.epicodus.myrestaurant.ui.RestaurantListActivity;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -21,10 +21,10 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.anything;
 import static org.hamcrest.core.IsNot.not;
 
-public class RestaurantActivityInstrumentationTest {
+public class RestaurantListActivityInstrumentationTest {
     @Rule
-    public ActivityTestRule<RestaurantActivity> activityTestRule =
-            new ActivityTestRule<>(RestaurantActivity.class);
+    public ActivityTestRule<RestaurantListActivity> activityTestRule =
+            new ActivityTestRule<>(RestaurantListActivity.class);
 
     @Test
     public void listItemClickDisplaysToastWithCorrectRestaurant() {
