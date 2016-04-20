@@ -6,7 +6,8 @@ package com.epicodus.myrestaurant;
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 
-import org.hamcrest.Matcher;
+import com.epicodus.myrestaurant.ui.RestaurantActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.epicodus.myrestaurant;
+package com.epicodus.myrestaurant.ui;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
@@ -12,6 +12,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.myrestaurant.R;
+import com.epicodus.myrestaurant.models.Restaurant;
+import com.epicodus.myrestaurant.services.YelpService;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -20,8 +24,6 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
-
-import static com.epicodus.myrestaurant.YelpService.findRestaurants;
 
 public class RestaurantActivity extends AppCompatActivity {
     public static final String TAG = RestaurantActivity.class.getSimpleName();
